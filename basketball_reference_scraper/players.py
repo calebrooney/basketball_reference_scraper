@@ -58,10 +58,10 @@ def get_game_logs(_name, year, playoffs=False, ask_matches=True):
     name = lookup(_name, ask_matches)
     suffix = get_player_suffix(name).replace('.html', '')
     if playoffs:
-        selector = 'pgl_basic_playoffs'
+        selector = 'player_game_log_post'
         url = f'https://www.basketball-reference.com/{suffix}/gamelog-playoffs'
     else:
-        selector = 'pgl_basic'
+        selector = 'player_game_log_reg'
         url = f'https://www.basketball-reference.com/{suffix}/gamelog/{year}'
     r = get_wrapper(url)
     if r.status_code == 200:
